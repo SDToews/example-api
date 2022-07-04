@@ -1,3 +1,7 @@
+
+```
+docker run --name tutorial -p 3306:3306 -e MYSQL_ROOT_PASSWORD=pword -d mysql:8.0.29
+```
 # Nestjs architecture
 ## main.ts
 - entrypoint for application
