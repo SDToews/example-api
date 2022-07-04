@@ -30,9 +30,13 @@ export class UsersService {
     return this.users.find((user) => user.id === id);
   }
 
-  createuser(createUserDto: CreateUserDto) {
+  createUser(createUserDto: CreateUserDto) {
     const password = encodePassword(createUserDto.password);
     const newUser = this.userRepository.create({ ...createUserDto, password });
     return this.userRepository.save(newUser);
+  }
+
+  findUserByUsername(username: string) {
+    return this.userRepository.findOneBy({ username });
   }
 }
