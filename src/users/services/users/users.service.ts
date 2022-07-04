@@ -6,18 +6,22 @@ import { SerializedUser, User } from 'src/users/types';
 export class UsersService {
   private users: User[] = [
     {
+      id: 1,
       username: 'scott',
       password: 'pass',
     },
     {
+      id: 2,
       username: 'st',
       password: 'pass1',
     },
     {
+      id: 3,
       username: 'darin',
       password: 'pass2',
     },
     {
+      id: 4,
       username: 'scotty',
       password: 'pass3',
     },
@@ -27,9 +31,13 @@ export class UsersService {
     return this.users.map((user) => plainToClass(SerializedUser, user));
   }
 
-  getUserbyUsername(username: string) {
+  getUserByUsername(username: string) {
     return this.users
       .map((user) => plainToClass(SerializedUser, user))
       .find((user) => user.username === username);
+  }
+
+  getUserById(id: number) {
+    return this.users.find((user) => user.id === id);
   }
 }
