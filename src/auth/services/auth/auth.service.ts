@@ -10,9 +10,11 @@ export class AuthService {
 
   async validateUser(username: string, password: string) {
     const userDB = await this.userService.findUserByUsername(username);
+
     if (userDB && comparePasswords(password, userDB.password)) {
       return userDB;
     }
+
     return null;
   }
 }
